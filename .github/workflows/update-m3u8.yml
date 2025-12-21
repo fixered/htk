@@ -1,14 +1,15 @@
-name: Update Hattrick M3U8
+name: Aggiorna Hattrick M3U8
 
 on:
   schedule:
-    # Runs every 5 minutes
-    - cron: "*/30 * * * *"
-  workflow_dispatch: # Allows manual trigger
+    # Esegue ogni 6 ore: 00:00, 06:00, 12:00, 18:00 UTC
+    - cron: "0 */6 * * *"
+  workflow_dispatch: # Permette esecuzione manuale
 
 jobs:
-  update-m3u8:
+  build-and-update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10 # Timeout di sicurezza
 
     steps:
       - name: Checkout repository
@@ -16,36 +17,56 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          python-version: "3.11"
+          go-version: "1.21"
+          cache: true
 
-      - name: Install dependencies
+      - name: Install Playwright dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install cloudscraper beautifulsoup4 playwright
-          playwright install webkit
-          playwright install-deps
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 \
+            libnspr4 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libcups2 \
+            libdrm2 \
+            libdbus-1-3 \
+            libxkbcommon0 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxfixes3 \
+            libxrandr2 \
+            libgbm1 \
+            libpango-1.0-0 \
+            libcairo2 \
+            libasound2
 
-      - name: Run scraper script
-        run: python hattrick.py
-        continue-on-error: false
+      - name: Install Go dependencies
+        run: go mod download
 
-      - name: Check for changes
-        id: check_changes
+      - name: Install Playwright
+        run: go run github.com/playwright-community/playwright-go/cmd/playwright@latest install chromium
+
+      - name: Run scraper
+        run: go run main.go
+
+      - name: Check if M3U8 was created
         run: |
-          git diff --quiet hattrickveloce.m3u8 || echo "changed=true" >> $GITHUB_OUTPUT
+          if [ ! -f hattrick.m3u8 ]; then
+            echo "❌ File hattrick.m3u8 non creato"
+            exit 1
+          fi
+          echo "✅ File hattrick.m3u8 creato con successo"
 
       - name: Commit and push if changed
-        if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add hattrickveloce.m3u8
-          git commit -m "Update M3U8 files - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          git add hattrick.m3u8
+          git diff --staged --quiet || git commit -m "🔄 Aggiornamento automatico playlist $(date +'%Y-%m-%d %H:%M')"
           git push
-
-      - name: No changes detected
-        if: steps.check_changes.outputs.changed != 'true'
-        run: echo "No changes in M3U8 files"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
