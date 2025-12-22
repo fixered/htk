@@ -9,33 +9,40 @@ import (
 	"sync"
 	"time"
 
+	http "github.com/Danny-Dasilva/CycleTLS/cycletls"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/playwright-community/playwright-go"
-	http "github.com/Danny-Dasilva/CycleTLS/cycletls"
 )
 
 const (
-	URL_PRINCIPALE = "https://hattrick.ws/"
-	LOGO          = "https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg"
-	MAX_WORKERS   = 5
+	URL_PRINCIPALE  = "https://hattrick.ws/"
+	LOGO           = "https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg"
+	MAX_WORKERS    = 5
 	BROWSER_TIMEOUT = 45000
-	PAGE_WAIT     = 3 * time.Second
+	PAGE_WAIT      = 3 * time.Second
 )
 
-var RENAME_RULES = []struct {
-	keywords []string
-	newName  string
-}{
-	{[]string{"1", "uno"}, "Sky Sport Uno"},
-	{[]string{"calcio"}, "Sky Sport Calcio"},
-	{[]string{"mix", "Mix"}, "Sky Sport Mix"},
-	{[]string{"Max", "max"}, "Sky Sport Max"},
-	{[]string{"arena"}, "Sky Sport Arena"},
-	{[]string{"24"}, "Sky Sport 24"},
-	{[]string{"tennis"}, "Sky Sport Tennis"},
-	{[]string{"motogp", "moto gp"}, "Sky Sport MotoGP"},
-	{[]string{"f1", "formula"}, "Sky Sport Formula 1"},
-	{[]string{"dazn"}, "Dazn 1"},
+// Regole di rinomina SEMPLIFICATE per matching con CloudStream
+var RENAME_RULES = map[string]string{
+	"sport24hd":     "Sky Sport 24",
+	"sport24":       "Sky Sport 24",
+	"sportuno":      "Sky Sport Uno",
+	"uno":           "Sky Sport Uno",
+	"calcio":        "Sky Sport Calcio",
+	"calciohd":      "Sky Sport Calcio",
+	"sportmixhd":    "Sky Sport Mix",
+	"sportmix":      "Sky Sport Mix",
+	"sportmaxhd":    "Sky Sport Max",
+	"sportmax":      "Sky Sport Max",
+	"sportarena":    "Sky Sport Arena",
+	"arena":         "Sky Sport Arena",
+	"dazn1":         "Dazn 1",
+	"f1hd":          "Sky Sport F1",
+	"f1":            "Sky Sport F1",
+	"sportmotohd":   "Sky Sport MotoGP",
+	"sportmoto":     "Sky Sport MotoGP",
+	"tennishd":      "Sky Sport Tennis",
+	"tennis":        "Sky Sport Tennis",
 }
 
 type Canale struct {
@@ -101,16 +108,21 @@ func (p *BrowserPool) Close() {
 	}
 }
 
-func normalizzaNomeCanale(nome string) string {
-	nomeL := strings.ToLower(nome)
-	for _, rule := range RENAME_RULES {
-		for _, k := range rule.keywords {
-			if strings.Contains(nomeL, k) {
-				return rule.newName
-			}
-		}
+func normalizzaNomeCanale(url string) string {
+	// Estrai il nome del file dall'URL (es: "sportuno.htm" -> "sportuno")
+	parts := strings.Split(url, "/")
+	fileName := parts[len(parts)-1]
+	baseName := strings.TrimSuffix(fileName, ".htm")
+	baseName = strings.TrimSuffix(baseName, ".html")
+	baseName = strings.ToLower(baseName)
+	
+	// Cerca nelle regole di rinomina
+	if nome, ok := RENAME_RULES[baseName]; ok {
+		return nome
 	}
-	return strings.TrimSpace(nome)
+	
+	// Default: capitalizza prima lettera
+	return strings.Title(baseName)
 }
 
 func estraiNomeBase(nome string) string {
@@ -118,6 +130,8 @@ func estraiNomeBase(nome string) string {
 	nome = strings.ReplaceAll(nome, " hd", "")
 	nome = strings.ReplaceAll(nome, " (backup)", "")
 	nome = strings.ReplaceAll(nome, "(backup)", "")
+	nome = strings.ReplaceAll(nome, "sky sport ", "")
+	nome = strings.ReplaceAll(nome, "sport ", "")
 	return strings.TrimSpace(nome)
 }
 
@@ -127,7 +141,7 @@ func estraiCanali() []Canale {
 	response, err := client.Do(URL_PRINCIPALE, http.Options{
 		Body:      "",
 		Ja3:       "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-23-65281-10-11-35-16-5-13-18-51-45-43-27-17513,29-23-24,0",
-		UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+		UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
 		Timeout:   15,
 	}, "GET")
 
@@ -145,7 +159,7 @@ func estraiCanali() []Canale {
 	canali := make([]Canale, 0, 50)
 	doc.Find("button a[href$='.htm']").Each(func(i int, s *goquery.Selection) {
 		href, _ := s.Attr("href")
-		nome := normalizzaNomeCanale(s.Text())
+		nome := normalizzaNomeCanale(href)
 		canali = append(canali, Canale{
 			Nome:     nome,
 			URL:      href,
@@ -165,12 +179,10 @@ func isPotentialStream(urlStr string) bool {
 	}
 	
 	urlLower := strings.ToLower(urlStr)
-	cdnKeywords := []string{"planetary", "lovecdn", "cdn", "stream", "live", "hls", "fmp4", "manifest"}
+	cdnKeywords := []string{"planetary", "lovecdn", "cdn", "stream", "live", "hls"}
 	
 	for _, keyword := range cdnKeywords {
-		if strings.Contains(urlLower, keyword) && 
-		   (strings.Contains(urlLower, "token") || strings.Contains(urlLower, ".m3u") || 
-		    strings.Contains(urlLower, "playlist") || strings.Contains(urlLower, "index")) {
+		if strings.Contains(urlLower, keyword) {
 			return true
 		}
 	}
@@ -190,13 +202,14 @@ func estraiStreamURL(frameURL string) (string, error) {
 	token := parsed.Query().Get("token")
 	if token != "" {
 		basePath := parsed.Path
-		if idx := strings.LastIndex(basePath, "/"); strings.Contains(basePath, ".") && idx != -1 {
+		if idx := strings.LastIndex(basePath, "/"); idx != -1 {
 			basePath = basePath[:idx]
 		}
 		
-		patterns := []string{"/index.fmp4.m3u8", "/index.m3u8", "/playlist.m3u8", "/master.m3u8"}
+		patterns := []string{"/index.m3u8", "/playlist.m3u8"}
 		for _, pattern := range patterns {
-			streamURL := fmt.Sprintf("%s://%s%s%s?token=%s", parsed.Scheme, parsed.Host, basePath, pattern, token)
+			streamURL := fmt.Sprintf("%s://%s%s%s?token=%s", 
+				parsed.Scheme, parsed.Host, basePath, pattern, token)
 			return streamURL, nil
 		}
 	}
@@ -205,11 +218,12 @@ func estraiStreamURL(frameURL string) (string, error) {
 }
 
 func apriEdEstraiStream(browser playwright.Browser, urlCanale string) (string, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(BROWSER_TIMEOUT)*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 
+		time.Duration(BROWSER_TIMEOUT)*time.Millisecond)
 	defer cancel()
 
 	bctx, err := browser.NewContext(playwright.BrowserNewContextOptions{
-		UserAgent: playwright.String("Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"),
+		UserAgent: playwright.String("Mozilla/5.0 (iPhone; CPU iPhone OS 16_0)"),
 	})
 	if err != nil {
 		return "", err
@@ -257,8 +271,8 @@ func apriEdEstraiStream(browser playwright.Browser, urlCanale string) (string, e
 	frames := page.Frames()
 	for _, frame := range frames {
 		frameURL := frame.URL()
-		if frameURL != "about:blank" && frameURL != "" && isPotentialStream(frameURL) {
-			if streamURL, err := estraiStreamURL(frameURL); err == nil && streamURL != "" {
+		if isPotentialStream(frameURL) {
+			if streamURL, err := estraiStreamURL(frameURL); err == nil {
 				mu.Lock()
 				streamURLs = append(streamURLs, streamURL)
 				mu.Unlock()
@@ -282,7 +296,9 @@ func apriEdEstraiStream(browser playwright.Browser, urlCanale string) (string, e
 	return "", fmt.Errorf("nessuno stream trovato")
 }
 
-func processaCanale(c Canale, pool *BrowserPool, risultati chan<- Canale, cache map[string]string, cacheMu *sync.RWMutex) {
+func processaCanale(c Canale, pool *BrowserPool, risultati chan<- Canale, 
+	cache map[string]string, cacheMu *sync.RWMutex) {
+	
 	fmt.Printf("➡  %s (%s)\n", c.Nome, c.URL)
 
 	cacheMu.RLock()
@@ -321,7 +337,16 @@ func scriviM3U8(nomeFile string, canali []Canale) error {
 	defer f.Close()
 
 	f.WriteString("#EXTM3U\n\n")
+	
+	// Rimuovi duplicati basandosi sul nome base
+	visti := make(map[string]bool)
+	
 	for i, c := range canali {
+		if visti[c.BaseName] {
+			continue
+		}
+		visti[c.BaseName] = true
+		
 		fmt.Fprintf(f, "#EXTINF:-1 tvg-id=\"%d\" group-title=\"Sky Sport IPTV\" tvg-logo=\"%s\", %s\n%s\n\n",
 			i+1, LOGO, c.Nome, c.Stream)
 	}

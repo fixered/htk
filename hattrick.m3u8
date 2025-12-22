@@ -1,65 +1,62 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-id="1" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
-https://planetary.lovecdn.ru/SkySportUnoIT/index.m3u8?token=U2t5U3BvcnRVbm9JVHxub19jaGVja19pcHwxNzY2MzkyNjQy.f6265e22573810918e81bfb2735ed2ef3e5c5da297167ef6312af42b86d518c4
+#EXTINF:-1 tvg-id="1" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport MotoGP
+https://planetary.lovecdn.ru/SkySportMotoGPIT/index.m3u8?token=U2t5U3BvcnRNb3RvR1BJVHxub19jaGVja19pcHwxNzY2MzkzODc3.8862373956e456d54832f0bb7b1a0363f11c32dfc509bb8edba988ee8b8dbb1e
 
-#EXTINF:-1 tvg-id="2" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Calcio
-https://planetary.lovecdn.ru/SkySportCalcioIT/index.m3u8?token=U2t5U3BvcnRDYWxjaW9JVHxub19jaGVja19pcHwxNzY2MzkyNjQy.8b9b10d60597fbcc932a2eb20d7424202b334d2f8c0dcb9731250534d10f11f2
+#EXTINF:-1 tvg-id="2" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
+https://planetary.lovecdn.ru/SkySportUnoIT/index.m3u8?token=U2t5U3BvcnRVbm9JVHxub19jaGVja19pcHwxNzY2MzkzODc3.f1d89ac034cf4728bcc63aacc10ef0861b83d779c7b422fc456109580ea0d8b9
 
-#EXTINF:-1 tvg-id="3" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Mix
-https://planetary.lovecdn.ru/SkySportMixIT/index.m3u8?token=U2t5U3BvcnRNaXhJVHxub19jaGVja19pcHwxNzY2MzkyNjQy.8b9ffd0fc49eb2d83e8fe223804b4fb417d4fe47809a3f15bf601fc190a31824
+#EXTINF:-1 tvg-id="3" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Tennis
+https://planetary.lovecdn.ru/SkySportTennisIT/index.m3u8?token=U2t5U3BvcnRUZW5uaXNJVHxub19jaGVja19pcHwxNzY2MzkzODc4.a95f7b23cbdd8903db270201ba301b9336e783d9dea1fa69b5234778ddf9e264
 
-#EXTINF:-1 tvg-id="4" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Arena
-https://planetary.lovecdn.ru/SkySportArenaIT/index.m3u8?token=U2t5U3BvcnRBcmVuYUlUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NDI=.cc80ada4c6a76424c2ce9892f5adc5944f3b3c60e72ce5bd628a4a3a40bb1622
+#EXTINF:-1 tvg-id="4" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Mix
+https://planetary.lovecdn.ru/SkySportMixIT/index.m3u8?token=U2t5U3BvcnRNaXhJVHxub19jaGVja19pcHwxNzY2MzkzODc4.ab1d4ee9f8963545442f04ebc7033d2b34e8e3148eef5b88dd872e8335b8af6f
 
-#EXTINF:-1 tvg-id="5" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Tennis
-https://planetary.lovecdn.ru/SkySportTennisIT/index.m3u8?token=U2t5U3BvcnRUZW5uaXNJVHxub19jaGVja19pcHwxNzY2MzkyNjQx.39612c1687cfa1d040da6283bbad145913faedb7804476cdae4bd2a1e3f49686
+#EXTINF:-1 tvg-id="5" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Arena
+https://planetary.lovecdn.ru/SkySportArenaIT/index.m3u8?token=U2t5U3BvcnRBcmVuYUlUfG5vX2NoZWNrX2lwfDE3NjYzOTM4Nzg=.150e91648e2ee1a0ea2bdbaa1ffc46dddceb5720a949aa2c61553f053ba6f880
 
-#EXTINF:-1 tvg-id="6" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Max
-https://planetary.lovecdn.ru/SkySportMaxIT/index.m3u8?token=U2t5U3BvcnRNYXhJVHxub19jaGVja19pcHwxNzY2MzkyNjQz.d3511bf288abf92a53f47673797d63009f2987f8c71da8389179c08609b86915
+#EXTINF:-1 tvg-id="8" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport 24
+https://planetary.lovecdn.ru/SkySport24IT/index.m3u8?token=U2t5U3BvcnQyNElUfG5vX2NoZWNrX2lwfDE3NjYzOTM4Nzg=.0288f09b1b075674888aecc4b3029702449e5dbd54cef3f3add9ddda58d253c9
 
-#EXTINF:-1 tvg-id="7" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport MotoGP
-https://planetary.lovecdn.ru/SkySportMotoGPIT/index.m3u8?token=U2t5U3BvcnRNb3RvR1BJVHxub19jaGVja19pcHwxNzY2MzkyNjQy.1bb58b90924cf5a69228498052dc95fd2ea3e625352d42a5cce30d15c4f91a88
+#EXTINF:-1 tvg-id="9" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Max
+https://planetary.lovecdn.ru/SkySportMaxIT/index.m3u8?token=U2t5U3BvcnRNYXhJVHxub19jaGVja19pcHwxNzY2MzkzODc3.c400e7103086869675d02eb2b874a567c10197f00c9b6bb3b480dc331b99479a
 
-#EXTINF:-1 tvg-id="8" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
-https://planetary.lovecdn.ru/SkySportF1IT/index.m3u8?token=U2t5U3BvcnRGMUlUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NTA=.d8bd1b37e320325918d44525efa5c5628fb85705b7cf2c7b0cb28d3bae68bf93
+#EXTINF:-1 tvg-id="10" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport F1
+https://planetary.lovecdn.ru/SkySportF1IT/index.m3u8?token=U2t5U3BvcnRGMUlUfG5vX2NoZWNrX2lwfDE3NjYzOTM4Nzg=.6156da02d1063a8472f3fda6071f572d1ef0ea9e2d27f24511142d16660177b1
 
-#EXTINF:-1 tvg-id="9" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Arena
-https://planetary.lovecdn.ru/SkySportArenaIT/index.m3u8?token=U2t5U3BvcnRBcmVuYUlUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NDg=.eb9e4c2bd7bec7fce7e9df5d4680756658152bc1ef7628614b874e87f6e7f0c3
+#EXTINF:-1 tvg-id="11" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sportitalia
+https://planetary.lovecdn.ru/Sportitalia/index.m3u8?token=U3BvcnRpdGFsaWF8bm9fY2hlY2tfaXB8MTc2NjM5Mzg3Nw==.9573d4820b15934e6b28ac27bedc9ed8eaf7cd94b273a248bdec53952e75c891
 
-#EXTINF:-1 tvg-id="10" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Max
-https://planetary.lovecdn.ru/SkySportMaxIT/index.m3u8?token=U2t5U3BvcnRNYXhJVHxub19jaGVja19pcHwxNzY2MzkyNjUw.9c67169f2023d152a613305405815568e8468b62bc5442b1d7104206003090c2
+#EXTINF:-1 tvg-id="13" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Dazn 1
+https://planetary.lovecdn.ru/ZonaDAZN/index.m3u8?token=Wm9uYURBWk58bm9fY2hlY2tfaXB8MTc2NjM5Mzg3OA==.57d19b1f75af0f2664e8cea2f071f5d7a3c21671df3f4027a2aae82b06ede395
 
-#EXTINF:-1 tvg-id="11" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport 24
-https://planetary.lovecdn.ru/SkySport24IT/index.m3u8?token=U2t5U3BvcnQyNElUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NDk=.15116f66f9b1bb46820016926c37dc757d24c3e19ec206be4e86d3b9c5f1861a
+#EXTINF:-1 tvg-id="15" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Calcio
+https://planetary.lovecdn.ru/SkySportCalcioIT/index.m3u8?token=U2t5U3BvcnRDYWxjaW9JVHxub19jaGVja19pcHwxNzY2MzkzODc4.10a474f8b63593ef72ae0d9e5381482ba0d81fcd44956d4a7f15649b317a3521
 
-#EXTINF:-1 tvg-id="12" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Arena
-https://planetary.lovecdn.ru/SkySportArenaIT/index.m3u8?token=U2t5U3BvcnRBcmVuYUlUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NTA=.ed93c63c4ef63d15673b0b5d50d406bfd23fdf4dc982fb3d61a74355ce11bec6
+#EXTINF:-1 tvg-id="18" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live7
+https://vknqgnh.234276133.fit:8443/hls/71urpyq.m3u8?s=MeNiOoDJyF-wYHrcFYryGw&e=1766415174
 
-#EXTINF:-1 tvg-id="13" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport MotoGP
-https://planetary.lovecdn.ru/SkySportMotoGPIT/index.m3u8?token=U2t5U3BvcnRNb3RvR1BJVHxub19jaGVja19pcHwxNzY2MzkyNjUx.77d59b68c02c727a69689812133aaaf272aa3fba78ccc49f765484aa9540b7e1
+#EXTINF:-1 tvg-id="19" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live138
+https://vknqgnh.234276133.fit:8443/hls/uehylqbe.m3u8?s=kj8OVwLgiTsE9wUeEKGiGA&e=1766415173
 
-#EXTINF:-1 tvg-id="14" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sport Italia
-https://planetary.lovecdn.ru/Sportitalia/index.m3u8?token=U3BvcnRpdGFsaWF8bm9fY2hlY2tfaXB8MTc2NjM5MjY1MQ==.16409c68531180208ade7f9b52980483380b38e878ab623df9b090ab7df6882d
+#EXTINF:-1 tvg-id="20" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Lbtv6
+https://ced.sascdn.com/tag/1097/smart.js
 
-#EXTINF:-1 tvg-id="15" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sport Italia
-https://planetary.lovecdn.ru/Sportitalia/index.m3u8?token=U3BvcnRpdGFsaWF8bm9fY2hlY2tfaXB8MTc2NjM5MjY0Mg==.deafcd37fdee0786e5d462a41f4253bd2fda6392df698ac3681ae7b907d4f9df
+#EXTINF:-1 tvg-id="22" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live138b
+https://vknqgnh.234276133.fit:8443/hls/c5kpdschm8te38.m3u8?s=oRMdJYM4YwdUfXKlyagYWA&e=1766415172
 
-#EXTINF:-1 tvg-id="16" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
-https://planetary.lovecdn.ru/SkySportF1IT/index.m3u8?token=U2t5U3BvcnRGMUlUfG5vX2NoZWNrX2lwfDE3NjYzOTI2NDk=.cb0994cfd72636dc1cdf3077df5e351e5e0f7c115c7c11c60d07ee15e967dfe2
+#EXTINF:-1 tvg-id="23" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live1
+https://vknqgnh.234276133.fit:8443/hls/eno6ezwiynhw.m3u8?s=0b_GoyBxAiV1Iy2-DY5T6Q&e=1766415172
 
-#EXTINF:-1 tvg-id="17" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
-https://planetary.lovecdn.ru/SkySportUnoIT/index.m3u8?token=U2t5U3BvcnRVbm9JVHxub19jaGVja19pcHwxNzY2MzkyNjUz.47c6bf37e2ffb4b9b8b21a0581841c4889160fc399e03d4a8727475a36230aa4
+#EXTINF:-1 tvg-id="24" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live147
+https://www.hattrick.ws/live147.htm
 
-#EXTINF:-1 tvg-id="18" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Calcio
-https://planetary.lovecdn.ru/SkySportCalcioIT/index.m3u8?token=U2t5U3BvcnRDYWxjaW9JVHxub19jaGVja19pcHwxNzY2MzkyNjUz.4a96706ae679d96c3b2009c40833aa1d988885f7d962ff5e9774ffd569f864c7
+#EXTINF:-1 tvg-id="25" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live106
+https://www.hattrick.ws/live106.htm
 
-#EXTINF:-1 tvg-id="19" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Mix
-https://planetary.lovecdn.ru/SkySportMixIT/index.m3u8?token=U2t5U3BvcnRNaXhJVHxub19jaGVja19pcHwxNzY2MzkyNjUz.e3ae9ca928cfe67124b8ee2f342ac317c5d4a6ed1d0ea34ac2e8368db9472062
+#EXTINF:-1 tvg-id="26" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live147b
+https://www.hattrick.ws/live147b.htm
 
-#EXTINF:-1 tvg-id="20" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Uno
-https://d6.merichunidya.com:1686/hls/do47.m3u8?md5=s7wZzb6x2DOCzMXHbdriZw&expires=1766399562
-
-#EXTINF:-1 tvg-id="21" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Sky Sport Tennis
-https://planetary.lovecdn.ru/SkySportTennisIT/index.m3u8?token=U2t5U3BvcnRUZW5uaXNJVHxub19jaGVja19pcHwxNzY2MzkyNjU0.b1380787ae6f17b77063da32654a449a72154936f80b0a7fcec6c5f69d46bce8
+#EXTINF:-1 tvg-id="27" group-title="Sky Sport IPTV" tvg-logo="https://resource-m.calcionapoli24.it/www/thumbs/1200x/1590651555_987.jpg", Live147c
+https://www.hattrick.ws/live147c.htm
 
